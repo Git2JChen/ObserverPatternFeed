@@ -8,9 +8,9 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             if (args == null) throw new ArgumentNullException(nameof(args));
-            var ibm = new IBM("GBP", 12);
-            ibm.AttachInvestor(new Investor("broker1"));
-            ibm.AttachInvestor(new Investor("broker2"));
+            var ibm = new IBM("International Bussness Machine", 12);
+            ibm.AttachInvestor(new Investor("Broker1"));
+            ibm.AttachInvestor(new Investor("Broker2"));
 
             ibm.Price = 20;
             ibm.Price = 100;
