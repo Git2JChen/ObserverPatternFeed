@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
@@ -10,6 +7,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            if (args == null) throw new ArgumentNullException(nameof(args));
             var ibm = new IBM("GBP", 12);
             ibm.AttachInvestor(new Investor("broker1"));
             ibm.AttachInvestor(new Investor("broker2"));
@@ -25,8 +23,8 @@ namespace ConsoleApplication1
     public abstract class Stock 
     {
         private double _price;
-        private string _symbol;
-        private List<IInvestor> _investors = new List<IInvestor>();
+        private readonly string _symbol;
+        private readonly List<IInvestor> _investors = new List<IInvestor>();
 
         public Stock(string symbol, double price)
         {
@@ -80,7 +78,7 @@ namespace ConsoleApplication1
 
     public class Investor : IInvestor
     {
-        private string _name;
+        private readonly string _name;
         public Investor(string name)
         {
             _name = name;
