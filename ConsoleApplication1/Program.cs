@@ -14,7 +14,12 @@ namespace ConsoleApplication1
         }
     }
 
-    public class Stock
+    public interface IInvestor
+    {
+        void Update();
+    }
+
+    public abstract class Stock 
     {
         private double _price;
         private string _symbol;
@@ -58,8 +63,13 @@ namespace ConsoleApplication1
         }
     }
     
-    public interface IInvestor
+    public class IBM : Stock
     {
-        void Update();
+        public IBM(string symbol, double price) :base(symbol, price)
+        {
+        }
     }
+
+    
+
 }
