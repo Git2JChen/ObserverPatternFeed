@@ -14,11 +14,6 @@ namespace ConsoleApplication1
         }
     }
 
-    public interface IInvestor
-    {
-        void Update();
-    }
-
     public abstract class Stock 
     {
         private double _price;
@@ -40,7 +35,7 @@ namespace ConsoleApplication1
         {
             foreach (var investor in _investors)
             {
-                investor.Update();
+                investor.Update(_symbol, _price);
             }
         }
 
@@ -69,7 +64,24 @@ namespace ConsoleApplication1
         {
         }
     }
-
     
+    public interface IInvestor
+    {
+        void Update(string stockSymbol, double price);
+    }
+
+    public class Investor : IInvestor
+    {
+        private string _name;
+        public Investor(string name)
+        {
+            _name = name;
+        }
+
+        public void Update(string stockSymbol, double price)
+        {
+            Console.WriteLine("Notified {0} of {1}'s change to {2:C}", _name, stockSymbol, price);
+        }
+    }
 
 }
