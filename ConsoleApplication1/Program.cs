@@ -10,7 +10,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            var ibm = new IBM("GBP", 12);
+            ibm.AttachInvestor(new Investor("broker1"));
+            ibm.AttachInvestor(new Investor("broker2"));
 
+            ibm.Price = 20;
+            ibm.Price = 100;
+            ibm.Price = 100;
+
+            Console.ReadKey();
         }
     }
 
@@ -18,7 +26,7 @@ namespace ConsoleApplication1
     {
         private double _price;
         private string _symbol;
-        private List<IInvestor> _investors;
+        private List<IInvestor> _investors = new List<IInvestor>();
 
         public Stock(string symbol, double price)
         {
