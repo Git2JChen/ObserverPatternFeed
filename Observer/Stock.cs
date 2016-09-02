@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ConsoleApplication1
+namespace Observer
 {
     public abstract class Stock 
     {

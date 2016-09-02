@@ -1,6 +1,7 @@
 ﻿using System;
+using Observer;
 
-namespace ConsoleApplication1
+namespace PatternApp
 {
     class Program
     {
